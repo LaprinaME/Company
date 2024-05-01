@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Company.Models.Роли>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список ролей</title>
+</head>
+<body>
+    <h2 style="margin-top: 200px; text-align: center;">Список ролей</h2>
+    <table class="table" style="width: 80%; margin: 0 auto; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #ddd; padding: 8px;">Код роли</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Название роли</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Дата начала действия</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Дата окончания действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr style="border: 1px solid #ddd; padding: 8px; text-align: center;">
+                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Код_роли</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Название_роли</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Дата_начала_действия</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Дата_окончания_действия</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

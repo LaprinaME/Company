@@ -1,0 +1,72 @@
+﻿@model Company.ViewModels.AddEmployeesViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Добавление новых сотрудников</title>
+</head>
+<body>
+    <h2>Добавление новых сотрудников</h2>
+    <form asp-action="AddEmployees" method="post">
+        <div>
+            <label asp-for="ФИО">ФИО:</label>
+            <input asp-for="ФИО" />
+            <span asp-validation-for="ФИО"></span>
+        </div>
+        <div>
+            <label asp-for="Пол">Пол:</label>
+            <input asp-for="Пол" />
+            <span asp-validation-for="Пол"></span>
+        </div>
+        <div>
+            <label asp-for="Дата_рождения">Дата рождения:</label>
+            <input asp-for="Дата_рождения" />
+            <span asp-validation-for="Дата_рождения"></span>
+        </div>
+        <div>
+            <label asp-for="СНИЛС">СНИЛС:</label>
+            <input asp-for="СНИЛС" />
+            <span asp-validation-for="СНИЛС"></span>
+        </div>
+        <div>
+            <label asp-for="Мобильный_телефон">Мобильный телефон:</label>
+            <input asp-for="Мобильный_телефон" />
+            <span asp-validation-for="Мобильный_телефон"></span>
+        </div>
+        <div>
+            <label asp-for="Адрес_электронной_почты">Адрес электронной почты:</label>
+            <input asp-for="Адрес_электронной_почты" />
+            <span asp-validation-for="Адрес_электронной_почты"></span>
+        </div>
+        <div>
+            <label asp-for="Адрес_проживания">Адрес проживания:</label>
+            <input asp-for="Адрес_проживания" />
+            <span asp-validation-for="Адрес_проживания"></span>
+        </div>
+        <div>
+            <label asp-for="Должность">Должность:</label>
+            <input asp-for="Должность" />
+            <span asp-validation-for="Должность"></span>
+        </div>
+        <!-- Новые добавленные поля для кода аккаунта, кода статуса и кода сотрудника -->
+        <div>
+            <label asp-for="Код_аккаунта">Код аккаунта:</label>
+            <input asp-for="Код_аккаунта" />
+            <span asp-validation-for="Код_аккаунта"></span>
+        </div>
+        <div>
+            <label asp-for="Код_статуса">Код статуса:</label>
+            <input asp-for="Код_статуса" />
+            <span asp-validation-for="Код_статуса"></span>
+        </div>
+        <div>
+            <label asp-for="Код_сотрудника">Код сотрудника:</label>
+            <input asp-for="Код_сотрудника" />
+            <span asp-validation-for="Код_сотрудника"></span>
+        </div>
+        <!-- Добавьте остальные поля сотрудника с аналогичным подходом -->
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>

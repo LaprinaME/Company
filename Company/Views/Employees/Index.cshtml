@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Company.Models.Сотрудники>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список сотрудников</title>
+</head>
+<body>
+    <h2>Список сотрудников</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Код сотрудника</th>
+                <th>Код статуса</th>
+                <th>Код аккаунта</th>
+                <th>ФИО</th>
+                <th>Пол</th>
+                <th>Дата рождения</th>
+                <th>СНИЛС</th>
+                <th>Мобильный телефон</th>
+                <th>Адрес электронной почты</th>
+                <th>Адрес проживания</th>
+                <th>Должность</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Код_сотрудника</td>
+                    <td>@employee.Код_статуса</td>
+                    <td>@employee.Код_аккаунта</td>
+                    <td>@employee.ФИО</td>
+                    <td>@employee.Пол</td>
+                    <td>@employee.Дата_рождения.ToShortDateString()</td>
+                    <td>@employee.СНИЛС</td>
+                    <td>@employee.Мобильный_телефон</td>
+                    <td>@employee.Адрес_электронной_почты</td>
+                    <td>@employee.Адрес_проживания</td>
+                    <td>@employee.Должность</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

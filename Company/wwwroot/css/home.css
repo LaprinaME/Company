@@ -1,0 +1,50 @@
+﻿body {
+    font-family: 'Anonymous Pro', monospace;
+    position: relative;
+    background-image: url("../images/background.jpg");
+    height: 100vh; /* Высота контейнера */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-container {
+    height: 300px;
+    width: 60%;
+    background-color: rgba(71, 73, 82, 0.6); /* Полупрозрачный серый фон */
+    color: #E5E4E2;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    text-align: center;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 10px 20px; /* Задаем отступы */
+    border-radius: 15px; /* Делаем кнопки округлыми */
+    background-color: #424959; /* Цвет фона кнопок */
+    color: #E5E4E2; /* Цвет текста кнопок */
+    text-decoration: none; /* Убираем подчеркивание */
+    border: 1px solid #333; /* Добавляем рамку */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Плавное изменение цвета */
+    margin: 0 10px; /* Добавляем отступы по бокам */
+    font-style: italic;
+}
+
+    a:hover {
+        background-color: #E5E4E2; /* Изменяем цвет фона при наведении */
+        border-color: #424959; /* Изменяем цвет рамки при наведении */
+        color: #424959; /* Изменяем цвет текста при наведении */
+    }
+
+    a:active {
+        transform: translateY(1px); /* Создаем эффект нажатия */
+    }

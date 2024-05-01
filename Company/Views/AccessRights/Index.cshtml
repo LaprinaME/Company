@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Company.Models.Права_доступа>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список прав доступа</title>
+</head>
+<body>
+    <h2 style="margin-top: 200px; text-align: center;">Список прав доступа</h2>
+    <table class="table" style="width: 80%; margin: 0 auto; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #ddd; padding: 8px;">Код права</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Код роли</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Код приложения</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Название права</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Начало действия доступа</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Окончание действия доступа</th>
+                <th style="border: 1px solid #ddd; padding: 8px;">Тип доступа</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="border: 1px solid #ddd; padding: 8px; text-align: center;">
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Код_права</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Код_роли</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Код_приложения</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Название_права</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Начало_действия_доступа</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Окончание_действия_доступа</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">@item.Тип_доступа</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
