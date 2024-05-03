@@ -45,7 +45,7 @@ namespace Company.Controllers
                         else if (roleCode == 2)
                         {
                             // Роль с индексом 2 - перенаправление на страницу прав доступа
-                            return RedirectToAction("Index", "AddEmployees");
+                            return RedirectToAction("Index", "ChangeOrganizationStatus");
                         }
                     }
                     else

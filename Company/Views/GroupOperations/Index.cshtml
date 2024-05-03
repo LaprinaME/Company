@@ -1,0 +1,49 @@
+﻿@model Company.ViewModels.GroupOperationsViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Operations</title>
+</head>
+<body>
+    <h2>Group Operations</h2>
+
+    <form asp-action="Index" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Код_статуса" class="control-label"></label>
+            <input asp-for="Код_статуса" class="form-control" />
+            <span asp-validation-for="Код_статуса" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Код_организации" class="control-label"></label>
+            <input asp-for="Код_организации" class="form-control" />
+            <span asp-validation-for="Код_организации" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Код_сотрудника" class="control-label"></label>
+            <input asp-for="Код_сотрудника" class="form-control" />
+            <span asp-validation-for="Код_сотрудника" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Код_учетных_данных" class="control-label"></label>
+            <input asp-for="Код_учетных_данных" class="form-control" />
+            <span asp-validation-for="Код_учетных_данных" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Код_права" class="control-label"></label>
+            <input asp-for="Код_права" class="form-control" />
+            <span asp-validation-for="Код_права" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+</body>
+</html>

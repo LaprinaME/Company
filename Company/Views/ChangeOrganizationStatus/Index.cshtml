@@ -1,0 +1,51 @@
+﻿@model Company.ViewModels.ChangeOrganizationStatusViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменение статуса организации</title>
+</head>
+<body>
+    <h2>Изменение статуса организации</h2>
+
+    <form asp-action="ChangeOrganizationStatus" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!-- Поле для ввода кода организации -->
+        <div class="form-group">
+            <label asp-for="Код_организации" class="control-label"></label>
+            <input asp-for="Код_организации" class="form-control" />
+            <span asp-validation-for="Код_организации" class="text-danger"></span>
+        </div>
+
+        <!-- Поле для ввода названия организации -->
+        <div class="form-group">
+            <label asp-for="Название_организации" class="control-label"></label>
+            <input asp-for="Название_организации" class="form-control" />
+            <span asp-validation-for="Название_организации" class="text-danger"></span>
+        </div>
+
+        <!-- Поле для выбора статуса организации -->
+        <div class="form-group">
+            <label asp-for="Код_статуса" class="control-label"></label>
+            <select asp-for="Код_статуса" class="form-control">
+                <option value="1">Active</option>
+                <option value="2">Inactive</option>
+            </select>
+            <span asp-validation-for="Код_статуса" class="text-danger"></span>
+        </div>
+
+        <!-- Поле для ввода кода родительской организации -->
+        <div class="form-group">
+            <label asp-for="Код_родительской_организации" class="control-label"></label>
+            <input asp-for="Код_родительской_организации" class="form-control" />
+            <span asp-validation-for="Код_родительской_организации" class="text-danger"></span>
+        </div>
+
+        <!-- Кнопка для отправки формы -->
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</body>
+</html>
