@@ -44,8 +44,8 @@ namespace Company.Controllers
                         }
                         else if (roleCode == 2)
                         {
-                            // Роль с индексом 2 - перенаправление на страницу прав доступа
-                            return RedirectToAction("Index", "ChangeOrganizationStatus");
+                            // Роль с индексом 2 - перенаправление на страницу меню
+                            return RedirectToAction("Index", "Menu");
                         }
                     }
                     else
@@ -108,8 +108,8 @@ namespace Company.Controllers
                 }
                 else if (model.RoleCode == 2)
                 {
-                    // Роль пользователя, перенаправление на страницу прав доступа
-                    return RedirectToAction("Index", "AddEmployees");
+                    // Роль пользователя, перенаправление на страницу меню
+                    return RedirectToAction("Index", "Menu");
                 }
                 else
                 {
