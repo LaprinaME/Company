@@ -58,6 +58,25 @@
             button:hover {
                 background-color: #555;
             }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .return-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .return-button:hover {
+                background-color: #555;
+            }
     </style>
 </head>
 <body>
@@ -79,5 +98,10 @@
         </select>
         <button type="submit">Перейти</button>
     </form>
+    <div class="button-container">
+        <form method="get" action="/Home/Index">
+            <button type="submit" class="return-button">Вернуться на главную страницу</button>
+        </form>
+    </div>
 </body>
 </html>

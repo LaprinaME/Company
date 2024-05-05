@@ -81,6 +81,25 @@
         .validation-message {
             color: red;
         }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .return-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .return-button:hover {
+                background-color: #555;
+            }
     </style>
 </head>
 <body>
@@ -145,5 +164,10 @@
         <!-- Добавьте остальные поля сотрудника с аналогичным подходом -->
         <button type="submit">Добавить</button>
     </form>
+    <div class="button-container">
+        <form method="get" action="/Menu/Index">
+            <button type="submit" class="return-button">Вернуться в меню</button>
+        </form>
+    </div>
 </body>
 </html>
