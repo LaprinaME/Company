@@ -2,6 +2,63 @@
 <html>
 <head>
     <title>Меню</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        form {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background: linear-gradient(to bottom right, #ff9999, #ff66cc);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #555;
+            }
+    </style>
 </head>
 <body>
     <h2>Меню</h2>
@@ -10,10 +67,17 @@
         <select name="page" id="page">
             <option value="Home/Index">Главная страница</option>
             <option value="ChangeStatus/Index">Изменение статуса сотрудника</option>
-            <!-- Добавьте другие страницы по мере необходимости -->
+            <option value="AccessRights/Index">Список прав доступа пользователей</option>
+            <option value="Account/Login">Авторизация</option>
+            <option value="Account/Register">Регистрация</option>
+            <option value="AddEmployees/Index">Добавление сотрудника</option>
+            <option value="AddOrganization/Index">Добавление организации</option>
+            <option value="ChangeOrganizationStatus/Index">Изменение статуса организации</option>
+            <option value="Employees/Index">Список сотрудников</option>
+            <option value="Organizations/Index">Список организаций</option>
+            <option value="Role/Index">Список ролей</option>
         </select>
         <button type="submit">Перейти</button>
     </form>
 </body>
 </html>
-

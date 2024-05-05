@@ -5,6 +5,83 @@
 <head>
     <title>Изменение статуса организации</title>
 </head>
+<style>
+    body {
+        font-family: 'Times New Roman', sans-serif;
+        background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
+        margin: 0;
+        padding: 0;
+    }
+
+    header, footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+
+    header {
+        top: 0;
+    }
+
+    footer {
+        bottom: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-top: 60px; /* Учтите высоту хедера */
+    }
+
+    form {
+        max-width: 300px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: calc(100% - 20px);
+        margin: 10px auto 0;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    .validation-message {
+        color: red;
+    }
+</style>
 <body>
     <h2>Изменение статуса организации</h2>
 
@@ -29,8 +106,8 @@
         <div class="form-group">
             <label asp-for="Код_статуса" class="control-label"></label>
             <select asp-for="Код_статуса" class="form-control">
-                <option value="1">Active</option>
-                <option value="2">Inactive</option>
+                <option value="1">Активный</option>
+                <option value="2">Неактивный</option>
             </select>
             <span asp-validation-for="Код_статуса" class="text-danger"></span>
         </div>
@@ -44,7 +121,7 @@
 
         <!-- Кнопка для отправки формы -->
         <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="submit" value="Сохранить" class="btn btn-primary" />
         </div>
     </form>
 </body>

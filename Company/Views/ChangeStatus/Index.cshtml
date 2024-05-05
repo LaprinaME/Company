@@ -1,18 +1,76 @@
 ﻿@model Company.ViewModels.ChangeStatusViewModel
 
-<form method="post" style="margin-top: 200px;">
-    <div class="form-group">
-        <label>Employee:</label>
-        <input type="text" name="EmployeeSearch" class="form-control" placeholder="Введите полное имя или код сотрудника" />
-    </div>
-    <div class="form-group">
-        <label asp-for="StatusId">Status:</label>
-        <select asp-for="StatusId" class="form-control">
-            @foreach (var status in Model.Statuses)
-            {
-                <option value="@status.StatusId">@status.StatusName</option>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменение статуса</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        select {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: calc(100% - 22px);
+            margin: 10px auto 0;
+        }
+
+            button[type="submit"]:hover {
+                background-color: #0056b3;
             }
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Сохранить</button>
-</form>
+    </style>
+</head>
+<body>
+    <form method="post" style="margin-top: 200px;">
+        <div class="form-group">
+            <label>Employee:</label>
+            <input type="text" name="EmployeeSearch" class="form-control" placeholder="Введите полное имя или код сотрудника" />
+        </div>
+        <div class="form-group">
+            <label>Статус:</label>
+            <select name="StatusId" class="form-control">
+                <option value="1">Активный</option>
+                <option value="2">Неактивный</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</body>
+</html>

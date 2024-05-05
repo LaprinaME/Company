@@ -1,40 +1,93 @@
 ﻿@model Company.ViewModels.RegisterViewModel
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Регистрация</title>
-</head>
-<body>
-    <h2>Registration Form</h2>
+<style>
+    body {
+        background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .register-container {
+        width: 400px;
+        margin: 100px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .register-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .register-container input[type="text"],
+        .register-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-container button[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px; /* Добавлен отступ сверху */
+        }
+
+            .register-container button[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+    .validation-message {
+        color: red;
+        font-size: 12px;
+    }
+</style>
+
+<div class="register-container">
+    <h2>Регистрация</h2>
     <form asp-action="Register" method="post">
         <div>
-            <label asp-for="Login">Login:</label>
+            <label asp-for="Login">Логин:</label>
             <input asp-for="Login" />
-            <span asp-validation-for="Login"></span>
+            <span class="validation-message" asp-validation-for="Login"></span>
         </div>
         <div>
-            <label asp-for="Password">Password:</label>
-            <input asp-for="Password" />
-            <span asp-validation-for="Password"></span>
+            <label asp-for="Password">Пароль:</label>
+            <input asp-for="Password" type="password" />
+            <span class="validation-message" asp-validation-for="Password"></span>
         </div>
         <div>
-            <label asp-for="ConfirmPassword">Confirm Password:</label>
-            <input asp-for="ConfirmPassword" />
-            <span asp-validation-for="ConfirmPassword"></span>
+            <label asp-for="ConfirmPassword">Повторите пароль:</label>
+            <input asp-for="ConfirmPassword" type="password" />
+            <span class="validation-message" asp-validation-for="ConfirmPassword"></span>
         </div>
         <div>
-            <label asp-for="RoleCode">Role Code:</label>
+            <label asp-for="RoleCode">Введите код роли:</label>
             <input asp-for="RoleCode" />
-            <span asp-validation-for="RoleCode"></span>
+            <span class="validation-message" asp-validation-for="RoleCode"></span>
         </div>
         <div>
-            <label asp-for="AccountCode">Account Code:</label>
+            <label asp-for="AccountCode">Введите код аккаунта:</label>
             <input asp-for="AccountCode" />
-            <span asp-validation-for="AccountCode"></span>
+            <span class="validation-message" asp-validation-for="AccountCode"></span>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Зарегестрироваться</button>
     </form>
-</body>
-</html>
+</div>

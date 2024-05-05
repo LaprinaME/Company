@@ -38,7 +38,7 @@ namespace Company.Controllers
                 _context.Update(organization);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "ChangeOrganizationStatus");
+                return RedirectToAction(nameof(Index));
             }
 
             return View(viewModel);

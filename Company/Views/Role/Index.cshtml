@@ -5,29 +5,61 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Список ролей</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            margin-top: 200px;
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <h2 style="margin-top: 200px; text-align: center;">Список ролей</h2>
-    <table class="table" style="width: 80%; margin: 0 auto; border-collapse: collapse;">
+    <h2>Список ролей</h2>
+    <table>
         <thead>
-            <tr style="background-color: #f2f2f2;">
-                <th style="border: 1px solid #ddd; padding: 8px;">Код роли</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Название роли</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Дата начала действия</th>
-                <th style="border: 1px solid #ddd; padding: 8px;">Дата окончания действия</th>
+            <tr>
+                <th>Код роли</th>
+                <th>Название роли</th>
+                <th>Дата начала действия</th>
+                <th>Дата окончания действия</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var role in Model)
             {
-                <tr style="border: 1px solid #ddd; padding: 8px; text-align: center;">
-                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Код_роли</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Название_роли</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Дата_начала_действия</td>
-                    <td style="border: 1px solid #ddd; padding: 8px;">@role.Дата_окончания_действия</td>
+                <tr>
+                    <td>@role.Код_роли</td>
+                    <td>@role.Название_роли</td>
+                    <td>@role.Дата_начала_действия</td>
+                    <td>@role.Дата_окончания_действия</td>
                 </tr>
             }
         </tbody>
     </table>
 </body>
 </html>
+
