@@ -1,4 +1,4 @@
-﻿@model Company.Models.Организации
+﻿@model Company.ViewModels.AddOrganizationViewModel
 
 <!DOCTYPE html>
 <html>
@@ -54,7 +54,8 @@
 
         input[type="text"],
         input[type="password"],
-        input[type="email"] {
+        input[type="email"],
+        input[type="date"] {
             width: calc(100% - 20px);
             padding: 8px;
             margin-bottom: 10px;
@@ -104,36 +105,61 @@
 </head>
 <body>
     <h2>Добавление организации</h2>
-    <form asp-action="Create">
+    <form asp-action="AddOrganization" method="post">
+        <div class="form-group">
+            <label asp-for="Код_организации" class="control-label"></label>
+            <input asp-for="Код_организации" class="form-control" />
+            <span asp-validation-for="Код_организации" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Код_статуса" class="control-label"></label>
+            <input asp-for="Код_статуса" class="form-control" />
+            <span asp-validation-for="Код_статуса" class="text-danger"></span>
+        </div>
         <div class="form-group">
             <label asp-for="Название_организации" class="control-label"></label>
             <input asp-for="Название_организации" class="form-control" />
             <span asp-validation-for="Название_организации" class="text-danger"></span>
         </div>
-    <div class="form-group">
-        <label asp-for="ИНН" class="control-label"></label>
-        <input asp-for="ИНН" class="form-control" />
-        <span asp-validation-for="ИНН" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="КПП" class="control-label"></label>
-        <input asp-for="КПП" class="form-control" />
-        <span asp-validation-for="КПП" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ОГРН" class="control-label"></label>
-        <input asp-for="ОГРН" class="form-control" />
-        <span asp-validation-for="ОГРН" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Дата_закрытия" class="control-label"></label>
-        <input asp-for="Дата_закрытия" class="form-control" />
-        <span asp-validation-for="Дата_закрытия" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-    </div>
-</form>
+        <div class="form-group">
+            <label asp-for="ИНН" class="control-label"></label>
+            <input asp-for="ИНН" class="form-control" />
+            <span asp-validation-for="ИНН" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="КПП" class="control-label"></label>
+            <input asp-for="КПП" class="form-control" />
+            <span asp-validation-for="КПП" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ОГРН" class="control-label"></label>
+            <input asp-for="ОГРН" class="form-control" />
+            <span asp-validation-for="ОГРН" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Код" class="control-label"></label>
+            <input asp-for="Код" class="form-control" />
+            <span asp-validation-for="Код" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Тип_организации" class="control-label"></label>
+            <input asp-for="Тип_организации" class="form-control" />
+            <span asp-validation-for="Тип_организации" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Дата_закрытия" class="control-label"></label>
+            <input asp-for="Дата_закрытия" class="form-control" />
+            <span asp-validation-for="Дата_закрытия" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Код_родительской_организации" class="control-label"></label>
+            <input asp-for="Код_родительской_организации" class="form-control" />
+            <span asp-validation-for="Код_родительской_организации" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </div>
+    </form>
     <div class="button-container">
         <form method="get" action="/Menu/Index">
             <button type="submit" class="return-button">Вернуться в меню</button>
