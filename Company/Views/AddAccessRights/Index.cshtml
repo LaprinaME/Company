@@ -1,0 +1,64 @@
+﻿@model Company.ViewModels.AddAccessRightsViewModel
+@{
+    ViewData["Title"] = "Добавление прав доступа";
+}
+<link rel="stylesheet" href="~/css/styles.css" />
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Add" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label asp-for="Код_права" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Код_права" class="form-control" />
+            <span asp-validation-for="Код_права" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Код_роли" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Код_роли" class="form-control" />
+            <span asp-validation-for="Код_роли" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Код_приложения" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Код_приложения" class="form-control" />
+            <span asp-validation-for="Код_приложения" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Название_права" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Название_права" class="form-control" />
+            <span asp-validation-for="Название_права" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Начало_действия_доступа" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Начало_действия_доступа" class="form-control" />
+            <span asp-validation-for="Начало_действия_доступа" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Окончание_действия_доступа" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Окончание_действия_доступа" class="form-control" />
+            <span asp-validation-for="Окончание_действия_доступа" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Тип_доступа" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Тип_доступа" class="form-control" />
+            <span asp-validation-for="Тип_доступа" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+

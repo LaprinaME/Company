@@ -1,0 +1,33 @@
+﻿body {
+    background: linear-gradient(to bottom, #808080, #ff69b4); /* градиентный фон */
+    color: #fff; /* белый текст */
+    padding-top: 50px; /* отступ сверху */
+}
+
+.container {
+    max-width: 400px; /* максимальная ширина контейнера формы */
+    margin: 0 auto; /* размещение по центру */
+    padding: 20px; /* отступы внутри контейнера */
+    background-color: rgba(0, 0, 0, 0.5); /* прозрачный фон контейнера */
+    border-radius: 10px; /* скругленные углы контейнера */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* тень */
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1); /* прозрачный фон инпутов */
+    color: #fff; /* белый текст в инпутах */
+}
+
+.btn-primary {
+    background-color: #ff69b4; /* неоново-розовая кнопка */
+    border: 2px solid #111;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px; /* скругленные углы кнопки */
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .btn-primary:hover {
+        background-color: #ff1493; /* изменение цвета при наведении */
+    }
