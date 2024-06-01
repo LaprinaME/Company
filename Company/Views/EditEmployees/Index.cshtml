@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Company.Models.Сотрудники>
+<link rel="stylesheet" href="~/css/site.css" />
+<div class="container">
+    <h2>Редактирование информации о сотрудниках</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ФИО)</th>
+                <th>@Html.DisplayNameFor(model => model.Пол)</th>
+                <th>@Html.DisplayNameFor(model => model.Дата_рождения)</th>
+                <th>@Html.DisplayNameFor(model => model.СНИЛС)</th>
+                <th>@Html.DisplayNameFor(model => model.Мобильный_телефон)</th>
+                <th>@Html.DisplayNameFor(model => model.Адрес_электронной_почты)</th>
+                <th>@Html.DisplayNameFor(model => model.Адрес_проживания)</th>
+                <th>@Html.DisplayNameFor(model => model.Должность)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ФИО)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Пол)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Дата_рождения)</td>
+                    <td>@Html.DisplayFor(modelItem => item.СНИЛС)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Мобильный_телефон)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Адрес_электронной_почты)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Адрес_проживания)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Должность)</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Код_сотрудника">Редактировать</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" asp-controller="MenuAdmin" asp-action="Index">Вернуться в меню для администраторов</a>
+</div>
+

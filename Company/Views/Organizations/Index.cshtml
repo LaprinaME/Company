@@ -5,44 +5,91 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Список организаций</title>
-<style>
-    body {
-        font-family: 'Times New Roman', sans-serif;
-        background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
-        margin: 0;
-        padding: 0;
-    }
-
-    h2 {
-        text-align: center;
-        color: #333;
-    }
-
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-
-        .table th,
-        .table td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+    <style>
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background: linear-gradient(to bottom right, #fbc2eb, #a18cd1);
+            margin: 0;
+            padding: 0;
         }
 
-        .table th {
-            background-color: #007bff;
-            color: #fff;
+        h2 {
+            margin-top: 100px;
+            text-align: center;
+            color: #333;
         }
 
-        .table tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
+        .search-container,
+        .sort-links {
+            text-align: center;
+            margin: 20px 0;
         }
 
-        .table tbody tr:hover {
-            background-color: #ddd;
+            .search-container form {
+                display: inline-block;
+            }
+
+            .search-container input[type="text"] {
+                padding: 8px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .search-container button {
+                padding: 8px 12px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .search-container button:hover {
+                    background-color: #0056b3;
+                }
+
+            .sort-links a {
+                padding: 8px 12px;
+                margin: 0 5px;
+                background-color: #007bff;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .sort-links a:hover {
+                    background-color: #0056b3;
+                }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
         }
+
+            .table th,
+            .table td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            .table tbody tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .table tbody tr:hover {
+                background-color: #ddd;
+            }
 
         .button-container {
             text-align: center;
@@ -62,47 +109,188 @@
             .return-button:hover {
                 background-color: #555;
             }
-</style>
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+            }
+        /* Стили для якорей */
+        .anchor {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(255, 192, 203, 0.7), rgba(255, 215, 0, 0.7), rgba(144, 238, 144, 0.7), rgba(135, 206, 250, 0.7), rgba(147, 112, 219, 0.7), rgba(255, 160, 122, 0.7), rgba(250, 128, 114, 0.7));
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+            .anchor:hover {
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.15);
+            }
+
+            .anchor:active {
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
+            }
+
+        .anchor-up {
+            bottom: auto;
+            top: 20px;
+        }
+
+        .anchor svg {
+            fill: #fff; /* Цвет стрелочек */
+            width: 24px;
+            height: 24px;
+        }
+    </style>
 </head>
 <body>
-<h2 style="margin-top: 50px">Список организаций</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Код организации</th>
-            <th>Код статуса</th>
-            <th>Название организации</th>
-            <th>ИНН</th>
-            <th>КПП</th>
-            <th>ОГРН</th>
-            <th>Код</th>
-            <th>Тип организации</th>
-            <th>Дата закрытия</th>
-            <th>Код родительской организации</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var организация in Model)
-        {
-            <tr>
-                <td>@организация.Код_организации</td>
-                <td>@организация.Код_статуса</td>
-                <td>@организация.Название_организации</td>
-                <td>@организация.ИНН</td>
-                <td>@организация.КПП</td>
-                <td>@организация.ОГРН</td>
-                <td>@организация.Код</td>
-                <td>@организация.Тип_организации</td>
-                <td>@организация.Дата_закрытия</td>
-                <td>@организация.Код_родительской_организации</td>
-            </tr>
-        }
-    </tbody>
-</table>
-    <div class="button-container">
-        <form method="get" action="/Menu/Index">
-            <button type="submit" class="return-button">Вернуться в меню</button>
+    <h2>Список организаций</h2>
+    <div class="search-container">
+        <form asp-action="Index" method="get">
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" placeholder="Поиск по названию организации" />
+            <button type="submit">Поиск</button>
         </form>
     </div>
+
+    <div class="sort-links">
+        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Сортировка по названию</a>
+        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">Сортировка по дате</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Код организации</th>
+                <th>Код статуса</th>
+                <th>Название организации</th>
+                <th>ИНН</th>
+                <th>КПП</th>
+                <th>ОГРН</th>
+                <th>Код</th>
+                <th>Тип организации</th>
+                <th>Дата закрытия</th>
+                <th>Код родительской организации</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var организация in Model)
+            {
+                <tr class="organization-row">
+                    <td>@организация.Код_организации</td>
+                    <td>@организация.Код_статуса</td>
+                    <td>@организация.Название_организации</td>
+                    <td>@организация.ИНН</td>
+                    <td>@организация.КПП</td>
+                    <td>@организация.ОГРН</td>
+                    <td>@организация.Код</td>
+                    <td>@организация.Тип_организации</td>
+                    <td>@организация.Дата_закрытия</td>
+                    <td>@организация.Код_родительской_организации</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div id="organization-info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="organization-info"></div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <form method="get" action="/Home/Index">
+            <button type="submit" class="return-button">Вернуться на главную страницу</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".organization-row").click(function () {
+                var rowData = $(this).find("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                var cardHtml = "<div><b>Код организации:</b> " + rowData[0] + "</div>" +
+                    "<div><b>Код статуса:</b> " + rowData[1] + "</div>" +
+                    "<div><b>Название организации:</b> " + rowData[2] + "</div>" +
+                    "<div><b>ИНН:</b> " + rowData[3] + "</div>" +
+                    "<div><b>КПП:</b> " + rowData[4] + "</div>" +
+                    "<div><b>ОГРН:</b> " + rowData[5] + "</div>" +
+                    "<div><b>Код:</b> " + rowData[6] + "</div>" +
+                    "<div><b>Тип организации:</b> " + rowData[7] + "</div>" +
+                    "<div><b>Дата закрытия:</b> " + rowData[8] + "</div>" +
+                    "<div><b>Код родительской организации:</b> " + rowData[9] + "</div>";
+
+                $("#organization-info").html(cardHtml);
+                $("#organization-info-modal").css("display", "block");
+            });
+
+            $(".close").click(function () {
+                $("#organization-info-modal").css("display", "none");
+            });
+        });
+    </script>
+    <a href="#" class="anchor anchor-up" onclick="scrollToTop()">&uarr;</a>
+    <a href="#bottom" class="anchor anchor-down" onclick="scrollToBottom()">&darr;</a>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToBottom() {
+            const bottom = document.getElementById('bottom');
+            bottom.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    <a id="bottom"></a>
 </body>
 </html>

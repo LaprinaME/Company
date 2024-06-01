@@ -130,20 +130,25 @@
     </style>
 </head>
 <body>
-    <h2>Меню для сотрудников</h2>
-    <h2>Добро пожаловать, Сотрудник!</h2>
-    <p>Вам предоставлен ограниченный доступ к веб-сайту.</p>
+    <h2>Меню для администраторов</h2>
+    <h2>Добро пожаловать, Админ!</h2>
+    <p>Вам предоставлен полный доступ к веб-сайту.</p>
     <div class="menu-container">
-        <form method="post" action="/Menu">
+        <form method="post" action="/MenuAdmin">
             <label for="page">Выберите страницу:</label>
             <select name="page" id="page">
                 <option value="Home/Index">Главная страница</option>
+                <option value="ChangeStatus/Index">Изменение статуса сотрудника</option>
                 <option value="AccessRights/Index">Список прав доступа пользователей</option>
                 <option value="Account/Login">Авторизация</option>
                 <option value="Account/Register">Регистрация</option>
+                <option value="AddEmployees/Index">Добавление сотрудника</option>
+                <option value="AddOrganization/Index">Добавление организации</option>
+                <option value="ChangeOrganizationStatus/Index">Изменение статуса организации</option>
                 <option value="Employees/Index">Список сотрудников</option>
                 <option value="Organizations/Index">Список организаций</option>
                 <option value="Role/Index">Список ролей</option>
+                <option value="EditEmployees/Index">Редактирование информации о сотрудниках</option>
             </select>
             <button type="submit">Перейти</button>
         </form>

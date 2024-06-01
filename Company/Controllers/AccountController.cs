@@ -39,13 +39,13 @@ namespace Company.Controllers
                         // Перенаправляем на соответствующую страницу в зависимости от роли
                         if (roleCode == 1)
                         {
-                            // Роль с индексом 1 - перенаправление на главную страницу
-                            return RedirectToAction("Index", "Home");
+                            // Роль с индексом 1 - перенаправление на страницу меню для сотрудников
+                            return RedirectToAction("Index", "Menu");
                         }
                         else if (roleCode == 2)
                         {
-                            // Роль с индексом 2 - перенаправление на страницу меню
-                            return RedirectToAction("Index", "Menu");
+                            // Роль с индексом 2 - перенаправление на страницу меню для администраторов
+                            return RedirectToAction("Index", "MenuAdmin");
                         }
                     }
                     else
