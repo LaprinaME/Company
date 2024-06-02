@@ -1,0 +1,155 @@
+﻿@model Company.Models.Кадровые_назначения
+
+@{
+    Layout = "_LayoutNone";
+    ViewData["Title"] = "Добавление";
+}
+<style>
+    body {
+        background: linear-gradient(to right, #ff6ec7, #2f2f2f);
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1, h2, h4 {
+        color: #FFA8F3;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    .btn, a {
+        border-radius: 50px;
+        border: 2px solid #545454;
+        margin: 10px; /* Увеличение расстояния между кнопками */
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #ff6ec7;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
+        display: inline-block; /* Обеспечивает наличие отступов между кнопками */
+    }
+
+        .btn:hover, a:hover {
+            background-color: #e05cae;
+            color: #ffffff;
+        }
+
+    .row {
+        margin: 20px;
+        width: 100%;
+        max-width: 800px;
+        background-color: #3a3a3a;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-top: 20px;
+    }
+
+    .control-label {
+        color: #FFA8F3;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 2px solid #ff6ec7;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #2f2f2f;
+        color: #ffffff;
+    }
+
+    .text-danger {
+        color: #ff6ec7;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-link {
+        margin-top: 20px;
+    }
+</style>
+<h1>Добавление</h1>
+
+<h4>Кадровые_назначения</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Код_сотрудника" class="control-label"></label>
+                <select asp-for="Код_сотрудника" class ="form-control" asp-items="ViewBag.Код_сотрудника"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Код_организации" class="control-label"></label>
+                <select asp-for="Код_организации" class ="form-control" asp-items="ViewBag.Код_организации"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Код_периода" class="control-label"></label>
+                <select asp-for="Код_периода" class ="form-control" asp-items="ViewBag.Код_периода"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Код_отдела" class="control-label"></label>
+                <select asp-for="Код_отдела" class ="form-control" asp-items="ViewBag.Код_отдела"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Должность" class="control-label"></label>
+                <input asp-for="Должность" class="form-control" />
+                <span asp-validation-for="Должность" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Вид_занятости" class="control-label"></label>
+                <input asp-for="Вид_занятости" class="form-control" />
+                <span asp-validation-for="Вид_занятости" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ФИО_руководителя" class="control-label"></label>
+                <input asp-for="ФИО_руководителя" class="form-control" />
+                <span asp-validation-for="ФИО_руководителя" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Табельный_номер" class="control-label"></label>
+                <input asp-for="Табельный_номер" class="form-control" />
+                <span asp-validation-for="Табельный_номер" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Номер_кабинета" class="control-label"></label>
+                <input asp-for="Номер_кабинета" class="form-control" />
+                <span asp-validation-for="Номер_кабинета" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Рабочий_телефон" class="control-label"></label>
+                <input asp-for="Рабочий_телефон" class="form-control" />
+                <span asp-validation-for="Рабочий_телефон" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Рабочий_адрес_электронной_почты" class="control-label"></label>
+                <input asp-for="Рабочий_адрес_электронной_почты" class="form-control" />
+                <span asp-validation-for="Рабочий_адрес_электронной_почты" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+

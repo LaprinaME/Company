@@ -6,6 +6,15 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 5px;
+    font-weight: 700;
+    color: #ff55e7;
+    margin-top: 50px;
+}
+
 h2 {
     text-align: center;
     color: #fff;
@@ -13,13 +22,13 @@ h2 {
 }
 
 .container {
-    width: 96%;
+    width: 95%;
     margin: 50px auto;
     padding: 30px;
     border-radius: 10px;
-    background: linear-gradient(to bottom right, #ff9999, #ff66cc);
+    background: linear-gradient(to bottom right, #3E3D3E, #ff66cc);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Добавлен overflow */
+    overflow: hidden;
 }
 
 label {
@@ -35,7 +44,7 @@ label {
     border-radius: 8px;
     border: none;
     margin-bottom: 20px;
-    box-sizing: border-box; /* Добавлен box-sizing */
+    box-sizing: border-box;
 }
 
 .btn {
@@ -44,7 +53,7 @@ label {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #333;
+    background-color: #F642FF;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -52,11 +61,11 @@ label {
 }
 
 .btn-primary:hover, .btn-secondary:hover {
-    background-color: #555;
+    background-color: #111;
 }
 
 .text-danger {
-    color: #FFA8C6;
+    color: #F642FF;
 }
 
 .table-container {
@@ -66,12 +75,13 @@ label {
 
 table {
     width: 100%;
-    color: #333;
+    color: #111;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     table-layout: auto;
-    border-collapse: collapse; /* Добавлен border-collapse */
+    border-collapse: collapse;
+    overflow-x: auto; /* Разрешает горизонтальную прокрутку */
 }
 
 th, td {
@@ -80,7 +90,7 @@ th, td {
 }
 
 th {
-    background-color: #ff66cc;
+    background-color: #F642FF;
     color: #fff;
 }
 
@@ -96,21 +106,75 @@ tr:hover {
     margin-top: 20px;
 }
 
-.btn-secondary {
-    border: none;
-    border-radius: 20px;
-    color: white;
-    padding: 10px 20px;
+a {
+    color: #F642FF;
     text-decoration: none;
-    margin-top: 10px;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+.link-button {
     display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #F642FF;
+    color: #fff;
     text-align: center;
+    text-decoration: none;
+    border: 2px solid #292929;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.btn-secondary {
-    background-color: #6c757d;
+    .link-button:hover {
+        background-color: #EF2EFF;
+        border-color: #F47AFF;
+    }
+
+.btn-primary, .btn-danger, .btn-create {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-    .btn-secondary:hover {
-        background-color: #5a6268;
+.btn-primary {
+    background-color: #EF2EFF;
+    border: 2px solid #111;
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background-color: #EF2EFF;
+        border-color: #111;
+    }
+
+.btn-danger {
+    background-color: #EF2EFF;
+    border: 2px solid #111;
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background-color: #EF2EFF;
+        border-color: #111;
+    }
+
+.btn-create {
+    background-color: #EF2EFF;
+    border: 2px solid #111;
+    color: #fff;
+    width: auto; /* Добавлено, чтобы уменьшить ширину кнопки */
+}
+
+    .btn-create:hover {
+        background-color: #EF2EFF;
+        border-color: #111;
     }

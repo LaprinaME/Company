@@ -1,0 +1,147 @@
+﻿@model Company.Models.Кадровые_назначения
+
+@{
+    Layout = "_LayoutNone";
+    ViewData["Title"] = "Список";
+}
+<style>
+    body {
+        background: linear-gradient(to right, #ff6ec7, #2f2f2f);
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1, h3, h4 {
+        color: #FFA8F3;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    .btn, a {
+        border-radius: 50px;
+        border: 2px solid #545454;
+        margin: 10px; /* Увеличение расстояния между кнопками */
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #ff6ec7;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
+        display: inline-block; /* Обеспечивает наличие отступов между кнопками */
+    }
+
+        .btn:hover, a:hover {
+            background-color: #e05cae;
+            color: #ffffff;
+        }
+
+    .row {
+        margin: 20px;
+        width: 100%;
+        max-width: 800px;
+        background-color: #3a3a3a;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    dt {
+        color: #FFA8F3;
+        font-weight: bold;
+    }
+
+    dd {
+        margin-left: 0;
+        color: #ffffff;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+<h1>Список</h1>
+
+<div>
+    <h4>Кадровые_назначения</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Должность)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Должность)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Вид_занятости)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Вид_занятости)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ФИО_руководителя)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ФИО_руководителя)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Табельный_номер)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Табельный_номер)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Номер_кабинета)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Номер_кабинета)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Рабочий_телефон)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Рабочий_телефон)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Рабочий_адрес_электронной_почты)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Рабочий_адрес_электронной_почты)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Отделы)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Отделы.Код_отдела)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Сотрудники)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Сотрудники.Код_сотрудника)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Организации)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Организации.Код_организации)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Периоды_неисполнения_обязанностей)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Периоды_неисполнения_обязанностей.Код_периода)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Код_назначения">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
+</div>

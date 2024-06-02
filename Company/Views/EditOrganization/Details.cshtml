@@ -1,0 +1,138 @@
+﻿@model Company.Models.Организации
+
+@{
+    Layout = "_LayoutNone";
+    ViewData["Title"] = "Детали";
+}
+
+<style>
+    body {
+        background: linear-gradient(to right, #ff6ec7, #2f2f2f);
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1, h3, h4 {
+        color: #FFA8F3;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    .btn, a {
+        border-radius: 50px;
+        border: 2px solid #545454;
+        margin: 10px; /* Увеличение расстояния между кнопками */
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #ff6ec7;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
+        display: inline-block; /* Обеспечивает наличие отступов между кнопками */
+    }
+
+        .btn:hover, a:hover {
+            background-color: #e05cae;
+            color: #ffffff;
+        }
+
+    .row {
+        margin: 20px;
+        width: 100%;
+        max-width: 800px;
+        background-color: #3a3a3a;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    dt {
+        color: #FFA8F3;
+        font-weight: bold;
+    }
+
+    dd {
+        margin-left: 0;
+        color: #ffffff;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<div class="container">
+    <h1>Список организаций</h1>
+    <div class="row">
+        <h4>Организации</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Название_организации)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Название_организации)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ИНН)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ИНН)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.КПП)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.КПП)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ОГРН)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ОГРН)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Код)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Код)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Тип_организации)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Тип_организации)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Дата_закрытия)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Дата_закрытия)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Статусы)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Статусы.Код_статуса)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Родительская_организация)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Родительская_организация.Код_организации)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Код_организации" class="btn">Редактировать</a> |
+        <a asp-action="Index" class="btn">Назад к списку</a>
+    </div>
+</div>

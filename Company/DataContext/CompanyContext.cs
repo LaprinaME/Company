@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Company.Models;
 using Microsoft.EntityFrameworkCore;
+using Company.ViewModels;
 
 namespace Company.DataContext
 {
@@ -25,5 +26,6 @@ namespace Company.DataContext
         {
             Database.EnsureCreated();
         }
+        public DbSet<Company.ViewModels.EditEmployeesViewModel> EditEmployeesViewModel { get; set; } = default!;
     }
 }

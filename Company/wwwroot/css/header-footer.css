@@ -5,21 +5,18 @@
     color: #474A51; /* Серый цвет текста */
     font-family: 'Anonymous Pro', monospace; /* Шрифт 'Anonymous Pro', monospace */
     font-size: 25px; /* Увеличенный размер текста */
+    position: relative; /* Гибкая позиция */
 }
 
 .header-container {
     background: linear-gradient(to right, #757F9A, #D7DDE8); /* Градиентный фон для хедера */
-    position: fixed; /* Фиксированная позиция */
     width: 100%; /* Ширина на всю страницу */
-    top: 0; /* Позиция сверху */
     z-index: 999; /* Зависит над остальным контентом */
 }
 
 .footer-container {
     background: linear-gradient(to right, #D7DDE8, #757F9A); /* Градиентный фон для футера */
-    position: fixed; /* Фиксированная позиция */
     width: 100%; /* Ширина на всю страницу */
-    bottom: 0; /* Позиция внизу */
     z-index: 999; /* Зависит над остальным контентом */
 }
 

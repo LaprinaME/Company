@@ -1,0 +1,126 @@
+﻿@model Company.Models.Ограничения_доступа
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+<style>
+    body {
+        background: linear-gradient(to right, #ff6ec7, #2f2f2f);
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1, h2, h4 {
+        color: #FFA8F3;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    .btn, a {
+        border-radius: 50px;
+        border: 2px solid #545454;
+        margin: 10px; /* Увеличение расстояния между кнопками */
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #ff6ec7;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
+        display: inline-block; /* Обеспечивает наличие отступов между кнопками */
+    }
+
+        .btn:hover, a:hover {
+            background-color: #e05cae;
+            color: #ffffff;
+        }
+
+    .row {
+        margin: 20px;
+        width: 100%;
+        max-width: 800px;
+        background-color: #3a3a3a;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-top: 20px;
+    }
+
+    .control-label {
+        color: #FFA8F3;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 2px solid #ff6ec7;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #2f2f2f;
+        color: #ffffff;
+    }
+
+    .text-danger {
+        color: #ff6ec7;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-link {
+        margin-top: 20px;
+    }
+</style>
+<h1>Добавление</h1>
+
+<h4>Ограничения_доступа</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Код_сотрудника" class="control-label"></label>
+                <select asp-for="Код_сотрудника" class ="form-control" asp-items="ViewBag.Код_сотрудника"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Код_расписания" class="control-label"></label>
+                <select asp-for="Код_расписания" class ="form-control" asp-items="ViewBag.Код_расписания"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Период_доступа_с" class="control-label"></label>
+                <input asp-for="Период_доступа_с" class="form-control" />
+                <span asp-validation-for="Период_доступа_с" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Период_доступа_по" class="control-label"></label>
+                <input asp-for="Период_доступа_по" class="form-control" />
+                <span asp-validation-for="Период_доступа_по" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Доступ_по_IP" class="control-label"></label>
+                <input asp-for="Доступ_по_IP" class="form-control" />
+                <span asp-validation-for="Доступ_по_IP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад к списку</a>
+</div>
+
