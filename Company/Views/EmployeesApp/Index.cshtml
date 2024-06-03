@@ -129,10 +129,10 @@
         left: 20px;
     }
 </style>
-<h1>Главная</h1>
+<h1>Редактирование информации о сотрудниках приложений</h1>
 
 <p>
-    <a asp-action="Create">Создать</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -156,9 +156,9 @@
                 @Html.DisplayFor(modelItem => item.Приложения.Код_приложения)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Код_сотрудника">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Код_сотрудника">Список</a> |
-                <a asp-action="Delete" asp-route-id="@item.Код_сотрудника">Удалить</a>
+                    <a asp-action="Edit" asp-route-id="@item.Код_сотрудников_приложения">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Код_сотрудников_приложения">Список</a> |
+                <a asp-action="Delete" asp-route-id="@item.Код_сотрудников_приложения">Удалить</a>
             </td>
         </tr>
 }

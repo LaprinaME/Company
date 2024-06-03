@@ -10,23 +10,23 @@ using Company.Models;
 
 namespace Company.Controllers
 {
-    public class EmployeeAppController : Controller
+    public class EmployeesAppController : Controller
     {
         private readonly CompanyContext _context;
 
-        public EmployeeAppController(CompanyContext context)
+        public EmployeesAppController(CompanyContext context)
         {
             _context = context;
         }
 
-        // GET: EmployeeApp
+        // GET: EmployeesApp
         public async Task<IActionResult> Index()
         {
             var companyContext = _context.Сотрудники_приложения.Include(с => с.Приложения).Include(с => с.Сотрудники);
             return View(await companyContext.ToListAsync());
         }
 
-        // GET: EmployeeApp/Details/5
+        // GET: EmployeesApp/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,7 +37,7 @@ namespace Company.Controllers
             var сотрудники_приложения = await _context.Сотрудники_приложения
                 .Include(с => с.Приложения)
                 .Include(с => с.Сотрудники)
-                .FirstOrDefaultAsync(m => m.Код_сотрудника_приложения == id);
+                .FirstOrDefaultAsync(m => m.Код_сотрудников_приложения == id);
             if (сотрудники_приложения == null)
             {
                 return NotFound();
@@ -46,7 +46,7 @@ namespace Company.Controllers
             return View(сотрудники_приложения);
         }
 
-        // GET: EmployeeApp/Create
+        // GET: EmployeesApp/Create
         public IActionResult Create()
         {
             ViewData["Код_приложения"] = new SelectList(_context.Приложения, "Код_приложения", "Код_приложения");
@@ -54,12 +54,12 @@ namespace Company.Controllers
             return View();
         }
 
-        // POST: EmployeeApp/Create
+        // POST: EmployeesApp/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Код_сотрудника_приложения,Код_сотрудника,Код_приложения")] Сотрудники_приложения сотрудники_приложения)
+        public async Task<IActionResult> Create([Bind("Код_сотрудников_приложения,Код_приложения,Код_сотрудника")] Сотрудники_приложения сотрудники_приложения)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace Company.Controllers
             return View(сотрудники_приложения);
         }
 
-        // GET: EmployeeApp/Edit/5
+        // GET: EmployeesApp/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -90,14 +90,14 @@ namespace Company.Controllers
             return View(сотрудники_приложения);
         }
 
-        // POST: EmployeeApp/Edit/5
+        // POST: EmployeesApp/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Код_сотрудника_приложения,Код_сотрудника,Код_приложения")] Сотрудники_приложения сотрудники_приложения)
+        public async Task<IActionResult> Edit(int id, [Bind("Код_сотрудников_приложения,Код_приложения,Код_сотрудника")] Сотрудники_приложения сотрудники_приложения)
         {
-            if (id != сотрудники_приложения.Код_сотрудника_приложения)
+            if (id != сотрудники_приложения.Код_сотрудников_приложения)
             {
                 return NotFound();
             }
@@ -111,7 +111,7 @@ namespace Company.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Сотрудники_приложенияExists(сотрудники_приложения.Код_сотрудника_приложения))
+                    if (!Сотрудники_приложенияExists(сотрудники_приложения.Код_сотрудников_приложения))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace Company.Controllers
             return View(сотрудники_приложения);
         }
 
-        // GET: EmployeeApp/Delete/5
+        // GET: EmployeesApp/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,7 +138,7 @@ namespace Company.Controllers
             var сотрудники_приложения = await _context.Сотрудники_приложения
                 .Include(с => с.Приложения)
                 .Include(с => с.Сотрудники)
-                .FirstOrDefaultAsync(m => m.Код_сотрудника_приложения == id);
+                .FirstOrDefaultAsync(m => m.Код_сотрудников_приложения == id);
             if (сотрудники_приложения == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Company.Controllers
             return View(сотрудники_приложения);
         }
 
-        // POST: EmployeeApp/Delete/5
+        // POST: EmployeesApp/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -164,7 +164,7 @@ namespace Company.Controllers
 
         private bool Сотрудники_приложенияExists(int id)
         {
-            return _context.Сотрудники_приложения.Any(e => e.Код_сотрудника_приложения == id);
+            return _context.Сотрудники_приложения.Any(e => e.Код_сотрудников_приложения == id);
         }
     }
 }

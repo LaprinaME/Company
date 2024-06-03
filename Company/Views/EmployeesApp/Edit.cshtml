@@ -72,6 +72,34 @@
     .text-danger {
         color: #ff6ec7;
     }
+
+    .anchor {
+        position: fixed;
+        bottom: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 24px;
+        border-radius: 50%;
+        background-color: #ff6ec7;
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .anchor:hover {
+            background-color: #e05cae;
+        }
+
+    .anchor-up {
+        right: 20px;
+    }
+
+    .anchor-down {
+        left: 20px;
+    }
 </style>
 
 <h1>Редактирование</h1>
@@ -82,16 +110,16 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Код_сотрудника_приложения" />
-            <div class="form-group">
-                <label asp-for="Код_сотрудника" class="control-label"></label>
-                <select asp-for="Код_сотрудника" class="form-control" asp-items="ViewBag.Код_сотрудника"></select>
-                <span asp-validation-for="Код_сотрудника" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Код_сотрудников_приложения" />
             <div class="form-group">
                 <label asp-for="Код_приложения" class="control-label"></label>
                 <select asp-for="Код_приложения" class="form-control" asp-items="ViewBag.Код_приложения"></select>
                 <span asp-validation-for="Код_приложения" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Код_сотрудника" class="control-label"></label>
+                <select asp-for="Код_сотрудника" class="form-control" asp-items="ViewBag.Код_сотрудника"></select>
+                <span asp-validation-for="Код_сотрудника" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Сохранить" class="btn btn-primary" />
@@ -104,3 +132,19 @@
     <a asp-action="Index">Назад</a>
 </div>
 
+<a href="#" class="anchor anchor-up" onclick="scrollToTop()">&uarr;</a>
+<a href="#bottom" class="anchor anchor-down" onclick="scrollToBottom()">&darr;</a>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollToBottom() {
+        const bottom = document.getElementById('bottom');
+        bottom.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>

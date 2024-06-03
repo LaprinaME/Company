@@ -82,6 +82,34 @@
     .back-link {
         margin-top: 20px;
     }
+
+    .anchor {
+        position: fixed;
+        bottom: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 24px;
+        border-radius: 50%;
+        background-color: #ff6ec7;
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .anchor:hover {
+            background-color: #e05cae;
+        }
+
+    .anchor-up {
+        right: 20px;
+    }
+
+    .anchor-down {
+        left: 20px;
+    }
 </style>
 <h1>Добавление</h1>
 
@@ -140,3 +168,19 @@
 <div>
     <a asp-action="Index">Назад</a>
 </div>
+<a href="#" class="anchor anchor-up" onclick="scrollToTop()">&uarr;</a>
+<a href="#bottom" class="anchor anchor-down" onclick="scrollToBottom()">&darr;</a>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollToBottom() {
+        const bottom = document.getElementById('bottom');
+        bottom.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>

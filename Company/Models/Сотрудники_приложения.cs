@@ -7,10 +7,10 @@ namespace Company.Models
 {
     public class Сотрудники_приложения
     {
-        [Key] public int Код_сотрудника_приложения { get; set; }
-        public int Код_сотрудника { get; set; }
+        [Key] public int Код_сотрудников_приложения { get; set; }
         public int Код_приложения { get; set; }
 
+        public int Код_сотрудника { get; set; }
         [ForeignKey("Код_сотрудника")]
         public Сотрудники Сотрудники { get; set; }
 
